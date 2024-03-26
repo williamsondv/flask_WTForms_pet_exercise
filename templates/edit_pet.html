@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block title %}Edit Pet{% endblock %} {% block
+content %}
+<h1>{{ pet.name }}</h1>
+
+{% if pet.img_url %}
+<img class="edit_img" src="{{ pet.img_url }}" alt="pet image" />
+{% endif %}
+
+<h2>Upate Pet</h2>
+
+<form method="POST">
+  {{ form.hidden_tag() }} {% for field in form if field.widget.input_type !=
+  'hidden' %}
+  <div class="form-group">
+    {{field.label}} {{ field(class_="form-control")}} {% for error in
+    field.errors %}
+    <h4 class="badge badge-danger">{{ error }}</h4>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button formaction="/delete/{{ pet.id }}" class="btn btn-danger">
+    Delete
+  </button>
+</form>
+{% endblock %}

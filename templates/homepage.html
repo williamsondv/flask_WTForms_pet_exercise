@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message
+  in messages %}
+  <h2 class="badge badge-success">{{message}}</h2> 
+  {% endfor %} {% endif %} {% endwith %}
+    <div class="row">
+    {% for pet in pets %}
+    <div class="col-3">
+      {% if pet.available == True %}
+      <div class="pet_div">
+        <a href="/{{pet.id}}">
+        <img src="{{ pet.img_url }}" alt="pet image" />
+        <p class="font-weight-bold">{{ pet.name }} is available!</p>
+        </a>
+      </div>
+      {% else %}
+      <div class="pet_div">
+        <a href="/{{pet.id}}">
+        <img src="{{ pet.img_url }}" alt="pet photo" />
+        <p>{{ pet.name }} is unavailable</p>
+      </a>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div>
+    <a href="/add"><button class="btn btn-primary">Add Pet</button></a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+  padding-right: 1rem;
+}
+
+textarea {
+  vertical-align: top;
+}
+
+.container {
+  display: flex;
+}
+
+.container_column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  width: 40%;
+}
+
+input[type="number"] {
+  width: 40%;
+}
+
+#notes {
+  width: 40%;
+}
+
+#species {
+  width: 40%;
+}
+
+#available {
+  width: 2rem;
+  height: 2rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.pet_div {
+  margin: 1rem;
+}
+
+.edit_img {
+  width: 30%;
+  height: 30%;
+}
